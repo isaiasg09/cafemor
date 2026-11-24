@@ -1,7 +1,6 @@
 /**
  * Fonte Única da Verdade - Café Mor (Goiânia - GO)
- * Dados processados diretamente do JSON oficial do cliente,
- * sem chaves privadas ou parâmetros de rastreio transitórios.
+ * Dados processados diretamente do JSON oficial e das fotografias reais do estabelecimento.
  */
 
 const WHATSAPP_BASE = 'https://wa.me/5562982886635';
@@ -18,7 +17,7 @@ export const siteData = {
   nicho: 'OPERATIONAL',
   statusNegocio: 'Aberto',
   statusNegocioDetalhe: 'Aberto agora',
-  taglineCurta: 'Setor Oeste, Goiânia · Próximo ao Lago das Rosas',
+  taglineCurta: 'Setor Oeste, Goiânia · Alameda das Rosas, 1.397',
   enderecoCompleto: 'Alameda das Rosas, N° 1.397 - St. Oeste, Goiânia - GO, 74125-010, Brasil',
   logradouro: 'Alameda das Rosas, N° 1.397',
   bairro: 'Setor Oeste',
@@ -36,6 +35,7 @@ export const siteData = {
     'Olá! Gostaria de consultar disponibilidade de mesa ou informações sobre o cardápio de hoje no Café Mor.'
   ),
   linkGoogleMaps: 'https://maps.google.com/?cid=7722444965080334398',
+  linkCardapioVuca: 'https://www.vucafood.com.br/morcafe/3083/cardapio-digital',
 
   nota: 4.5,
   totalAvaliacoes: 626,
@@ -59,98 +59,108 @@ export const siteData = {
   ],
 
   /**
-   * URLs reais do Google Places (sem chaves privadas ou parâmetros de cache)
+   * 10 fotografias reais do Google Places com legendas fiéis ao que aparece em cada foto
    */
   fotos: [
     {
       id: 'foto-1',
-      titulo: 'Arquitetura Afetiva & Luz Natural',
+      titulo: 'Salão Principal & Estante de Madeira',
       categoria: 'A Casa',
-      legenda: 'Madeira maciça, plantas vivas e luz natural filtrada pelas janelas altas na Alameda das Rosas.',
+      legenda:
+        'Estante de madeira mel iluminada por arandelas, mesas com vasinhos de flores, cadeiras de veludo e carrinho de chá.',
       url: 'https://lh3.googleusercontent.com/grass-cs/AABkmLd95m3gFIqP4_ZLIc953_vZIjxMOG3ONyc-qk1K1j6zJzvr-FyD0xI4mPFzTheMXNg0gfHof5vE44_8h9WqQ7DoLuZ-q5ZikAz2KdGjAdW99yHH4Cl3715tg6WBqvRzCvsQp1gJEA=s4800-w1080-h1067',
       origem: 'Google Places',
       destaqueHero: true,
     },
     {
       id: 'foto-2',
-      titulo: 'Cafés Especiais & Confeitaria da Casa',
-      categoria: 'Cafés & Doces',
-      legenda: 'Extrações cuidadosas acompanhadas por bolos caseiros, brownies e vitrine artesanal.',
+      titulo: 'Toast Espanhol Artesanal',
+      categoria: 'Gastronomia',
+      legenda:
+        'Pão de fermentação natural dourado com creme de queijo, presunto Parma, tomate cereja e manjericão fresco.',
       url: 'https://lh3.googleusercontent.com/grass-cs/AABkmLdnqUjrrbPchzQ8cmHWZNbGcZFQKWaCSBqQB3xcL4L7fib-bARuygTvEAK6doetv6-wTaFr0VUL9kOrSLDwvXsPItJxFVMexYwqA4CpukoVWdaE-VV1BJXUYaoqh6v7bZcy4C8baw=s4800-w1080-h1080',
-      origem: 'Google Places',
-      destaqueHero: true,
-    },
-    {
-      id: 'foto-3',
-      titulo: 'Detalhes Artesanais & Memória Goiana',
-      categoria: 'Identidade',
-      legenda: 'Cristaleira, louças antigas e a parede dedicada a Cora Coralina: História, Talento e Sabedoria.',
-      url: 'https://lh3.googleusercontent.com/grass-cs/AABkmLfEt_Mi5eMc4Lg5m4zBlIbYaeZbQWcGCeqZKm4uE3sly7Bx-dH1tVLqAzSbYfFV3SnCZerFR_jhY2eWTlIYUK422rVxEdudrr6jOblk4wDCDHRdhK1f56XrI1kL6_aIdeZ74OUbHuAQunqy=s4800-w1080-h1080',
       origem: 'Google Places',
       destaqueHero: false,
     },
     {
+      id: 'foto-3',
+      titulo: 'Xícara Café Mor & Bolinho de Chuva',
+      categoria: 'Cafés & Doces',
+      legenda:
+        'A icônica xícara de porcelana clara ("Feito com carinho") servida ao lado de bolinhos de chuva polvilhados em canela.',
+      url: 'https://lh3.googleusercontent.com/grass-cs/AABkmLfEt_Mi5eMc4Lg5m4zBlIbYaeZbQWcGCeqZKm4uE3sly7Bx-dH1tVLqAzSbYfFV3SnCZerFR_jhY2eWTlIYUK422rVxEdudrr6jOblk4wDCDHRdhK1f56XrI1kL6_aIdeZ74OUbHuAQunqy=s4800-w1080-h1080',
+      origem: 'Google Places',
+      destaqueHero: true,
+    },
+    {
       id: 'foto-4',
-      titulo: 'Almoço Fresco & Apresentação Impecável',
-      categoria: 'Gastronomia',
-      legenda: 'Mais que cafeteria: pratos frescos preparados com esmero para um almoço tranquilo no Setor Oeste.',
+      titulo: 'Estante de Memórias & Relíquias',
+      categoria: 'Identidade',
+      legenda:
+        'Acervo afetivo com rádio vintage, câmeras analógicas, moedor de grãos clássico, porcelanas antigas e luz quente.',
       url: 'https://lh3.googleusercontent.com/grass-cs/AABkmLesTsCitCndELRy7av2VbhYgTwNCMRAFa-cWDUKT9UZIk0Uw7hEVsRmlgFjbvNJwieDZ1sHOHUYXVjBCUztCvwHaKN5OUGFybR8kEPdXCg6QwPrgMkdvkg4lM3Yt1s56PodvvZEH4GLoJHc=s4800-w1080-h1080',
       origem: 'Google Places',
       destaqueHero: false,
     },
     {
       id: 'foto-5',
-      titulo: 'Cantinho da Janela Azul & Jardim',
-      categoria: 'A Casa',
-      legenda: 'Poltronas confortáveis voltadas para o verde, pensadas para desacelerar no meio do dia.',
+      titulo: 'Mesa no Jardim & Confeitaria',
+      categoria: 'Cafés & Doces',
+      legenda:
+        'Mesas brancas no jardim com pães de queijo quentinhos, bolos caseiros, cheesecake de frutas vermelhas e bebidas especiais.',
       url: 'https://lh3.googleusercontent.com/grass-cs/AABkmLfu7jvrNN8YGe4sxjCfHkRTcHM3xLpZq7KeFbaZltb3z6CjnJWYoxs6d0tQUdoYpzmD4wKpqQPZWnBp-iNVM95DNcnp63Bj5Yklnbbu3QPSrUh84INpb1XSyMRIvRQQWkLlTyksyA-hfr0=s4800-w1080-h1080',
       origem: 'Google Places',
       destaqueHero: false,
     },
     {
       id: 'foto-6',
-      titulo: 'Vitrine de Confeitaria levada a sério',
-      categoria: 'Cafés & Doces',
-      legenda: 'Sobremesas caprichadas para emendar depois do almoço ou num café demorado de fim de tarde.',
+      titulo: 'Fachada na Alameda das Rosas, 1.397',
+      categoria: 'A Casa',
+      legenda:
+        'Tijolo aparente, pedras naturais, palmeiras e o letreiro artesanal Café Mor no coração do Setor Oeste.',
       url: 'https://lh3.googleusercontent.com/grass-cs/AABkmLcrzAaryAKw_3cwz2idSJK8XN0YPyMF_HPSEugkOHoqJL9_XsGvimlzC84mJ4tVkUKZblBX4dwB4HnSa9-xPnnuhVlnwEPw229cX1zt2lbPZkJZIJl4YQ151zSqprgsjSqqARjdabiZNOe6=s4800-w1080-h1080',
       origem: 'Google Places',
       destaqueHero: false,
     },
     {
       id: 'foto-7',
-      titulo: 'Salão Climatizado & Mesas Espaçadas',
+      titulo: 'Varanda & Jardim da Casa',
       categoria: 'A Casa',
-      legenda: 'Ambiente interno limpo, claro, climatizado e silencioso na medida certa para conversar ou trabalhar.',
+      legenda:
+        'Casa acolhedora cercada por árvores, varanda em ferro trabalhado e arte botânica próxima ao Lago das Rosas.',
       url: 'https://lh3.googleusercontent.com/grass-cs/AABkmLdgXqEs-LlI1XotCGM1LDAncXJ_JJebYjNA91QlmB8Hwi_KtJrAyTyl2z4uEharRlPmEWamUMpa_aGP-XEeowt6mACQDwWCgO7kFnBxEQPNSGtJvMuLOtLd0FkURqF8luVI9oXk8FvMJEC5=s4800-w1080-h1080',
       origem: 'Google Places',
       destaqueHero: false,
     },
     {
       id: 'foto-8',
-      titulo: 'Chás Deliciosos & Bebidas Autorais',
-      categoria: 'Cafés & Doces',
-      legenda: 'Infusões aromáticas, cafés especiais e acompanhamentos servidos com flores frescas à mesa.',
+      titulo: 'Salão Climatizado & Arco Azul',
+      categoria: 'A Casa',
+      legenda:
+        'Ambiente interno claro e espaçoso integrando a estante de madeira maciça ao famoso cantinho do arco azul.',
       url: 'https://lh3.googleusercontent.com/grass-cs/AABkmLeqzM1GZbLfDyS_XOH8DKutkEf5MaUxNmZ2_LdXOFaCTUEI4Q48zU1rnOEf2sasM312bUtXrsa13A2ZbakGsJ2SjWNvrPi1o7mvGenFBGl_8Lsvoki9GrLn6dVUqNJ30nWSd9mKduLVVBE=s4800-w1080-h1080',
       origem: 'Google Places',
       destaqueHero: false,
     },
     {
       id: 'foto-9',
-      titulo: 'Mesa Posta com Carinho',
-      categoria: 'Gastronomia',
-      legenda: 'Do design do cardápio aos pequenos vasos de flor em cada mesa: o cuidado aparece em tudo.',
+      titulo: 'Mocaccino Mor em Camadas',
+      categoria: 'Cafés & Doces',
+      legenda:
+        'Blend de chocolate na base, espresso encorpado e creme vaporizado sobre o jogo americano com a história da casa.',
       url: 'https://lh3.googleusercontent.com/grass-cs/AABkmLcd0qQUkw9q3PcywV3nLTY8tZt_5MXYiKBMas0pFjh0qWOdHWQRQVKeGV-BSMv9r4-_JqnT9pPTc7r3M48CZi2NLjb7hFXeFGYR8T4sI-ym30wTi_eI_rncelTbGx122YQBHjFKCvfDY5B5=s4800-w1080-h1080',
       origem: 'Google Places',
       destaqueHero: false,
     },
     {
       id: 'foto-10',
-      titulo: 'Pausa no Fim da Tarde',
-      categoria: 'Gastronomia',
-      legenda: 'Um refúgio próximo ao Lago das Rosas para reunião de trabalho, almoço em família ou pausa solo.',
+      titulo: 'Pátio do Mural Botânico',
+      categoria: 'Identidade',
+      legenda:
+        'Jardim ensolarado com mesas brancas, palmeira, luminária clássica e o mural floral que colore as tardes goianas.',
       url: 'https://lh3.googleusercontent.com/grass-cs/AABkmLfkwoETqIejanjXHNkD5z0O0fUct8MREifzSCfciwMakVqf_xBIYDD5c23ZymHkwt66vjS97NbUckWNwDLTMOFckXVpp-9oRDf5iqFGGpELT11SXdD5ptx6xVc5bbWAfWL7IhGcAg=s4800-w1080-h1080',
       origem: 'Google Places',
-      destaqueHero: false,
+      destaqueHero: true,
     },
   ],
 
@@ -197,32 +207,32 @@ export const siteData = {
   ],
 
   /**
-   * Momentos do cardápio e da casa fundamentados exclusivamente nos relatos verificados
+   * Momentos do cardápio e da casa fundamentados nos relatos verificados
    */
   momentosDaCasa: [
     {
       id: 'momento-almoco',
-      horarioSugerido: 'Meio-dia, Almoço Fresco',
+      horarioSugerido: 'Meio-dia, Almoço Executivo',
       titulo: 'Mais que café, um restaurante completo',
       descricao:
-        'Pratos frescos e muito bem feitos para resolver o almoço com tranquilidade no Setor Oeste, seja em família, a sós ou em reunião de trabalho.',
-      itensCitados: ['Pratos de almoço frescos', 'Apresentação cuidadosa', 'Salão climatizado'],
+        'Salada Mor, Filé de Frango e Picadinho de Filé Mignon preparados na hora para resolver o almoço com tranquilidade no Setor Oeste.',
+      itensCitados: ['Salada Mor', 'Picadinho de Filé', 'Salão climatizado'],
     },
     {
       id: 'momento-confeitaria',
-      horarioSugerido: 'Tarde, Vitrine & Grãos',
-      titulo: 'Cafés especiais, chás & confeitaria séria',
+      horarioSugerido: 'Tarde, Vitrine & Grãos SCAA',
+      titulo: 'Cafés especiais, chás e bolinho de chuva',
       descricao:
-        'A vitrine de doces ao fundo do balcão entrega a dedicação da casa: bolos caseiros, brownies densos, chás deliciosos e cafés especiais passados no ponto.',
-      itensCitados: ['Cafés especiais', 'Brownies & bolos caseiros', 'Chás selecionados'],
+        'Extrações no Espresso, V60, Chemex e Prensa Francesa combinadas com bolinhos de chuva recheados, brownies, banoffee e chás autorais.',
+      itensCitados: ['V60 & Chemex', 'Bolinho de chuva', 'Chás artesanais'],
     },
     {
       id: 'momento-ambiente',
       horarioSugerido: 'Todo o dia, Alma de Goiás',
-      titulo: 'Casa de vó com elegância editorial',
+      titulo: 'Casa de vó com elegância goiana',
       descricao:
-        'Móveis de madeira maciça, cristaleira, louças antigas, vasos de flor em cada mesa e a homenagem à Cora Coralina celebrando História, Talento e Sabedoria.',
-      itensCitados: ['Poltronas na janela azul', 'Jardim & luz natural', 'Homenagem à Cora Coralina'],
+        'Estante de madeira mel, relíquias afetivas, arco azul, pátio com mural botânico e a homenagem à Cora Coralina em História, Talento e Sabedoria.',
+      itensCitados: ['Arco azul & jardim', 'Mural botânico', 'Homenagem à Cora Coralina'],
     },
   ],
 
@@ -231,9 +241,9 @@ export const siteData = {
    */
   perguntasFrequentes: [
     {
-      pergunta: 'Como faço pedidos ou consulto o cardápio do dia?',
+      pergunta: 'Como faço pedidos ou consulto o cardápio completo?',
       resposta:
-        'O atendimento digital do Café Mor acontece diretamente pelo nosso WhatsApp oficial (62) 98288-6635, sem intermediários de aplicativos. Basta tocar em "Pedir pelo WhatsApp" para falar com nossa equipe.',
+        'Você pode explorar todos os itens, preços e descrições aqui no site ou abrir diretamente nosso cardápio digital oficial no VucaFood. Para pedir ou tirar dúvidas sem taxas de aplicativos terceirizados, fale direto pelo WhatsApp (62) 98288-6635.',
     },
     {
       pergunta: 'Qual o melhor horário para conseguir mesa perto da janela ou no salão climatizado?',

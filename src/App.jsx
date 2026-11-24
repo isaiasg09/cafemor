@@ -3,6 +3,7 @@ import Lenis from 'lenis';
 import { useReducedMotion } from 'motion/react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
+import MenuSection from './components/MenuSection';
 import StorySection from './components/StorySection';
 import GallerySection from './components/GallerySection';
 import ReviewsSection from './components/ReviewsSection';
@@ -15,7 +16,6 @@ export default function App() {
   const shouldReduceMotion = Boolean(useReducedMotion());
   const [liveStatus, setLiveStatus] = useState(() => getGoianiaLiveStatus());
 
-  // Atualiza status "Aberto agora / Abre às..." a cada minuto em horário de Goiânia
   useEffect(() => {
     const intervalId = window.setInterval(() => {
       setLiveStatus(getGoianiaLiveStatus());
@@ -23,7 +23,6 @@ export default function App() {
     return () => window.clearInterval(intervalId);
   }, []);
 
-  // Inicializa Lenis Smooth Scroll respeitando prefers-reduced-motion
   useEffect(() => {
     if (shouldReduceMotion) return undefined;
 
@@ -41,7 +40,6 @@ export default function App() {
     }
     rafId = window.requestAnimationFrame(raf);
 
-    // Suporte suave para links âncora internos (#essencia, #galeria, etc.)
     function handleAnchorClick(event) {
       const anchor = event.target.closest('a[href^="#"]');
       if (!anchor) return;
@@ -64,22 +62,21 @@ export default function App() {
   }, [shouldReduceMotion]);
 
   return (
-    <div className="relative min-h-[100dvh] bg-[#0F0F10] text-[#E8E6DF]">
-      {/* Skip-to-content para acessibilidade via teclado */}
+    <div className="relative min-h-[100dvh] bg-[#15110E] text-[#F4EEE5]">
       <a
         href="#conteudo-principal"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-[#D4A373] focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-[#0F0F10]"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-[#DBA368] focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-[#15110E]"
       >
         Pular para o conteúdo principal
       </a>
 
-      {/* Textura sutil de filme fixada na GPU (zero impacto no scroll) */}
       <div aria-hidden="true" className="noir-grain" />
 
       <Navbar liveStatus={liveStatus} />
 
       <main id="conteudo-principal">
         <HeroSection liveStatus={liveStatus} />
+        <MenuSection />
         <StorySection />
         <GallerySection />
         <ReviewsSection />

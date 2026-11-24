@@ -7,24 +7,21 @@ import { SmartPhoto } from './ActionButtons';
 
 const CATEGORIES = ['Todos', 'A Casa', 'Cafés & Doces', 'Gastronomia', 'Identidade'];
 
-/**
- * Mapa rítmico assimétrico sem células vazias para os 10 registros reais do Google Places
- */
 function getBentoSpan(index, total) {
   if (total !== 10) {
     return 'md:col-span-6 lg:col-span-4';
   }
   const pattern = [
-    'md:col-span-6 lg:col-span-6', // 0
-    'md:col-span-6 lg:col-span-6', // 1
-    'md:col-span-6 lg:col-span-4', // 2
-    'md:col-span-6 lg:col-span-4', // 3
-    'md:col-span-12 lg:col-span-4', // 4
-    'md:col-span-6 lg:col-span-7', // 5
-    'md:col-span-6 lg:col-span-5', // 6
-    'md:col-span-4 lg:col-span-4', // 7
-    'md:col-span-4 lg:col-span-4', // 8
-    'md:col-span-4 lg:col-span-4', // 9
+    'md:col-span-6 lg:col-span-6',
+    'md:col-span-6 lg:col-span-6',
+    'md:col-span-6 lg:col-span-4',
+    'md:col-span-6 lg:col-span-4',
+    'md:col-span-12 lg:col-span-4',
+    'md:col-span-6 lg:col-span-7',
+    'md:col-span-6 lg:col-span-5',
+    'md:col-span-4 lg:col-span-4',
+    'md:col-span-4 lg:col-span-4',
+    'md:col-span-4 lg:col-span-4',
   ];
   return pattern[index] || 'md:col-span-6 lg:col-span-4';
 }
@@ -62,24 +59,23 @@ export default function GallerySection() {
     <section
       id="galeria"
       aria-labelledby="galeria-heading"
-      className="relative py-24 sm:py-32 border-t border-[#E8E6DF]/[0.07] bg-[#121110]"
+      className="relative py-24 sm:py-32 border-t border-[#F4EEE5]/[0.07] bg-[#191410]"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-6 mb-12">
           <div className="max-w-[58ch]">
             <h2
               id="galeria-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#E8E6DF] leading-[1.14] pb-1 text-balance"
+              className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#F4EEE5] leading-[1.14] pb-1 text-balance"
             >
               A luz, a madeira e os sabores{' '}
-              <em className="italic text-[#D4A373] font-normal">como eles são.</em>
+              <em className="italic text-[#DBA368] font-normal">como eles são.</em>
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-[#A8A298] text-pretty">
-              Fotografias reais da casa, dos pratos de almoço e da confeitaria compartilhadas no Google Maps.
+            <p className="mt-3 text-sm sm:text-base text-[#B9AEA0] text-pretty">
+              Fotografias reais da casa, dos pratos e da confeitaria compartilhadas no Google Maps.
             </p>
           </div>
 
-          {/* Shared-Element Filter Tabs (@motion-dev layoutId) - linha única no desktop */}
           <div
             role="tablist"
             aria-label="Filtrar fotografias por ambiente ou especialidade"
@@ -99,14 +95,14 @@ export default function GallerySection() {
                   }}
                   className={cn(
                     'relative min-h-10 rounded-full px-4 py-2 text-xs sm:text-sm font-medium whitespace-nowrap transition-colors duration-150 cursor-pointer active:scale-[0.97]',
-                    isSelected ? 'text-[#0F0F10]' : 'text-[#A8A298] hover:text-[#E8E6DF]'
+                    isSelected ? 'text-[#15110E]' : 'text-[#B9AEA0] hover:text-[#F4EEE5]'
                   )}
                 >
                   {isSelected && (
                     <motion.span
                       layoutId="active-gallery-pill"
                       transition={{ type: 'spring', stiffness: 380, damping: 32 }}
-                      className="absolute inset-0 rounded-full bg-[#D4A373]"
+                      className="absolute inset-0 rounded-full bg-[#DBA368]"
                     />
                   )}
                   <span className="relative z-10">{category}</span>
@@ -116,7 +112,6 @@ export default function GallerySection() {
           </div>
         </div>
 
-        {/* Asymmetric Bento Grid - Fotografias limpas sem pills ou texto sobreposto */}
         <div className="grid grid-cols-1 gap-5 md:grid-cols-12 items-stretch">
           {filteredPhotos.map((foto, index) => (
             <motion.article
@@ -147,24 +142,22 @@ export default function GallerySection() {
                       imgClassName="group-hover:scale-[1.04]"
                     />
 
-                    {/* Ícone sutil de zoom apenas no hover/foco */}
                     <span
                       aria-hidden="true"
-                      className="pointer-events-none absolute right-3.5 top-3.5 inline-flex size-9 items-center justify-center rounded-full border border-[#E8E6DF]/20 bg-[#0F0F10]/75 text-[#E8E6DF] opacity-0 backdrop-blur-md transition-[opacity,transform] duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 group-hover:scale-105 group-hover:text-[#D4A373]"
+                      className="pointer-events-none absolute right-3.5 top-3.5 inline-flex size-9 items-center justify-center rounded-full border border-[#F4EEE5]/20 bg-[#15110E]/75 text-[#F4EEE5] opacity-0 backdrop-blur-md transition-[opacity,transform] duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 group-hover:scale-105 group-hover:text-[#DBA368]"
                     >
                       <ArrowsOutSimple weight="light" className="size-4" />
                     </span>
                   </div>
 
-                  {/* Legenda editorial abaixo da imagem, dentro do Double-Bezel */}
-                  <div className="flex flex-1 flex-col justify-between gap-2 border-t border-[#E8E6DF]/[0.06] p-5">
+                  <div className="flex flex-1 flex-col justify-between gap-2 border-t border-[#F4EEE5]/[0.06] p-5">
                     <div>
-                      <p className="text-xs font-medium text-[#D4A373]">{foto.categoria}</p>
-                      <h3 className="mt-1 font-serif text-lg sm:text-xl text-[#E8E6DF] leading-snug">
+                      <p className="text-xs font-medium text-[#DBA368]">{foto.categoria}</p>
+                      <h3 className="mt-1 font-serif text-lg sm:text-xl text-[#F4EEE5] leading-snug">
                         {foto.titulo}
                       </h3>
                     </div>
-                    <p className="text-xs sm:text-sm text-[#A8A298] leading-relaxed line-clamp-2">
+                    <p className="text-xs sm:text-sm text-[#B9AEA0] leading-relaxed line-clamp-2">
                       {foto.legenda}
                     </p>
                   </div>
@@ -175,7 +168,6 @@ export default function GallerySection() {
         </div>
       </div>
 
-      {/* Lightbox Modal Acessível */}
       <AnimatePresence>
         {activePhoto && (
           <motion.div
@@ -187,7 +179,7 @@ export default function GallerySection() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={() => setSelectedIndex(null)}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-[#0F0F10]/92 p-4 sm:p-8 backdrop-blur-xl"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-[#15110E]/92 p-4 sm:p-8 backdrop-blur-xl"
           >
             <motion.div
               initial={{ scale: 0.96, opacity: 0 }}
@@ -198,10 +190,10 @@ export default function GallerySection() {
               className="bezel-shell relative w-full max-w-4xl"
             >
               <div className="bezel-core overflow-hidden">
-                <div className="flex items-center justify-between border-b border-[#E8E6DF]/10 px-5 py-3.5">
+                <div className="flex items-center justify-between border-b border-[#F4EEE5]/10 px-5 py-3.5">
                   <div>
-                    <p className="font-serif text-lg text-[#E8E6DF]">{activePhoto.titulo}</p>
-                    <p className="text-xs text-[#A8A298] tabular-nums">
+                    <p className="font-serif text-lg text-[#F4EEE5]">{activePhoto.titulo}</p>
+                    <p className="text-xs text-[#B9AEA0] tabular-nums">
                       Foto {selectedIndex + 1} de {filteredPhotos.length} · Acervo Google Maps
                     </p>
                   </div>
@@ -209,19 +201,19 @@ export default function GallerySection() {
                     type="button"
                     onClick={() => setSelectedIndex(null)}
                     aria-label="Fechar visualização ampliada"
-                    className="inline-flex size-10 items-center justify-center rounded-full border border-[#E8E6DF]/15 bg-[#0F0F10] text-[#E8E6DF] hover:text-[#D4A373] cursor-pointer active:scale-[0.96]"
+                    className="inline-flex size-10 items-center justify-center rounded-full border border-[#F4EEE5]/15 bg-[#15110E] text-[#F4EEE5] hover:text-[#DBA368] cursor-pointer active:scale-[0.96]"
                   >
                     <X weight="regular" className="size-5" aria-hidden="true" />
                   </button>
                 </div>
 
-                <div className="relative bg-[#0F0F10]">
+                <div className="relative bg-[#15110E]">
                   <SmartPhoto
                     src={activePhoto.url}
                     alt={activePhoto.legenda}
                     priority
                     className="max-h-[68dvh] aspect-[16/11] w-full"
-                    imgClassName="object-contain bg-[#0F0F10]"
+                    imgClassName="object-contain bg-[#15110E]"
                   />
 
                   {filteredPhotos.length > 1 && (
@@ -234,7 +226,7 @@ export default function GallerySection() {
                           )
                         }
                         aria-label="Fotografia anterior"
-                        className="absolute left-3 top-1/2 -translate-y-1/2 inline-flex size-11 items-center justify-center rounded-full border border-[#E8E6DF]/15 bg-[#0F0F10]/85 text-[#E8E6DF] hover:border-[#D4A373] cursor-pointer active:scale-[0.96]"
+                        className="absolute left-3 top-1/2 -translate-y-1/2 inline-flex size-11 items-center justify-center rounded-full border border-[#F4EEE5]/15 bg-[#15110E]/85 text-[#F4EEE5] hover:border-[#DBA368] cursor-pointer active:scale-[0.96]"
                       >
                         <CaretLeft weight="regular" className="size-5" aria-hidden="true" />
                       </button>
@@ -244,7 +236,7 @@ export default function GallerySection() {
                           setSelectedIndex((prev) => (prev + 1) % filteredPhotos.length)
                         }
                         aria-label="Próxima fotografia"
-                        className="absolute right-3 top-1/2 -translate-y-1/2 inline-flex size-11 items-center justify-center rounded-full border border-[#E8E6DF]/15 bg-[#0F0F10]/85 text-[#E8E6DF] hover:border-[#D4A373] cursor-pointer active:scale-[0.96]"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 inline-flex size-11 items-center justify-center rounded-full border border-[#F4EEE5]/15 bg-[#15110E]/85 text-[#F4EEE5] hover:border-[#DBA368] cursor-pointer active:scale-[0.96]"
                       >
                         <CaretRight weight="regular" className="size-5" aria-hidden="true" />
                       </button>
@@ -252,7 +244,7 @@ export default function GallerySection() {
                   )}
                 </div>
 
-                <div className="px-6 py-4 text-sm text-[#D5D1C7]">
+                <div className="px-6 py-4 text-sm text-[#E2D9CC]">
                   {activePhoto.legenda}
                 </div>
               </div>

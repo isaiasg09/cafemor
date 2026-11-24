@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import {
   ArrowUpRight,
+  BookOpenText,
   Coffee,
   MapPinLine,
   WhatsappLogo,
@@ -9,8 +10,8 @@ import { motion, useMotionTemplate, useMotionValue } from 'motion/react';
 import { cn } from '../utils/cn';
 
 /**
- * Primary CTA — Button-in-Button architecture (@high-end-visual-design)
- * High contrast: #0F0F10 text over #D4A373 background (8.1:1 WCAG AAA)
+ * Primary CTA - Button-in-Button architecture
+ * High contrast: #15110E text over #DBA368 warm honey-wood background
  */
 export function PrimaryWhatsappButton({
   href,
@@ -24,10 +25,10 @@ export function PrimaryWhatsappButton({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        'group inline-flex items-center justify-between gap-3 rounded-full bg-[#D4A373] text-[#0F0F10] font-medium whitespace-nowrap',
+        'group inline-flex items-center justify-between gap-3 rounded-full bg-[#DBA368] text-[#15110E] font-medium whitespace-nowrap',
         'transition-[transform,background-color,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]',
-        'hover:bg-[#E3BA91] active:scale-[0.97]',
-        'shadow-[0_12px_32px_-8px_rgba(212,163,115,0.38)]',
+        'hover:bg-[#E8B986] active:scale-[0.97]',
+        'shadow-[0_12px_32px_-8px_rgba(219,163,104,0.38)]',
         compact ? 'min-h-11 pl-4 pr-1.5 py-1.5 text-sm' : 'min-h-13 pl-6 pr-2 py-2 text-sm sm:text-base',
         className
       )}
@@ -39,7 +40,7 @@ export function PrimaryWhatsappButton({
       <span
         aria-hidden="true"
         className={cn(
-          'inline-flex items-center justify-center rounded-full bg-[#0F0F10]/12 text-[#0F0F10]',
+          'inline-flex items-center justify-center rounded-full bg-[#15110E]/12 text-[#15110E]',
           'transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]',
           'group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:scale-105',
           compact ? 'size-8' : 'size-9'
@@ -52,11 +53,11 @@ export function PrimaryWhatsappButton({
 }
 
 /**
- * Secondary CTA — Google Maps route action with Button-in-Button trailing wrapper
+ * Secondary CTA - Google Maps route action
  */
 export function SecondaryMapsButton({
   href,
-  label = 'Como Chegar no Maps',
+  label = 'Ver no Google Maps',
   className,
 }) {
   return (
@@ -66,19 +67,19 @@ export function SecondaryMapsButton({
       rel="noopener noreferrer"
       className={cn(
         'group inline-flex min-h-13 items-center justify-between gap-3 rounded-full whitespace-nowrap',
-        'bg-[#161514] border border-[#E8E6DF]/14 text-[#E8E6DF] pl-5 pr-2 py-2 text-sm sm:text-base font-normal',
+        'bg-[#1E1814] border border-[#F4EEE5]/14 text-[#F4EEE5] pl-5 pr-2 py-2 text-sm sm:text-base font-normal',
         'transition-[transform,border-color,background-color] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]',
-        'hover:border-[#D4A373]/55 hover:bg-[#1D1B19] active:scale-[0.97]',
+        'hover:border-[#DBA368]/55 hover:bg-[#271F19] active:scale-[0.97]',
         className
       )}
     >
       <span className="inline-flex items-center gap-2">
-        <MapPinLine weight="light" className="size-5 text-[#D4A373] shrink-0" aria-hidden="true" />
+        <MapPinLine weight="light" className="size-5 text-[#DBA368] shrink-0" aria-hidden="true" />
         <span>{label}</span>
       </span>
       <span
         aria-hidden="true"
-        className="inline-flex size-9 items-center justify-center rounded-full bg-[#E8E6DF]/[0.06] text-[#D4A373] transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+        className="inline-flex size-9 items-center justify-center rounded-full bg-[#F4EEE5]/[0.06] text-[#DBA368] transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
       >
         <ArrowUpRight weight="regular" className="size-4" />
       </span>
@@ -87,8 +88,42 @@ export function SecondaryMapsButton({
 }
 
 /**
- * Double-Bezel Card with GPU-safe MotionValue spotlight (@design-spells + @high-end-visual-design)
- * Zero React re-renders on pointer move.
+ * Secondary Anchor / External CTA - Menu navigation
+ */
+export function SecondaryMenuButton({
+  href = '#cardapio',
+  label = 'Ver Cardápio Digital',
+  external = false,
+  className,
+}) {
+  return (
+    <a
+      href={href}
+      {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      className={cn(
+        'group inline-flex min-h-13 items-center justify-between gap-3 rounded-full whitespace-nowrap',
+        'bg-[#1E1814] border border-[#F4EEE5]/14 text-[#F4EEE5] pl-5 pr-2 py-2 text-sm sm:text-base font-normal',
+        'transition-[transform,border-color,background-color] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]',
+        'hover:border-[#DBA368]/55 hover:bg-[#271F19] active:scale-[0.97]',
+        className
+      )}
+    >
+      <span className="inline-flex items-center gap-2">
+        <BookOpenText weight="light" className="size-5 text-[#DBA368] shrink-0" aria-hidden="true" />
+        <span>{label}</span>
+      </span>
+      <span
+        aria-hidden="true"
+        className="inline-flex size-9 items-center justify-center rounded-full bg-[#F4EEE5]/[0.06] text-[#DBA368] transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+      >
+        <ArrowUpRight weight="regular" className="size-4" />
+      </span>
+    </a>
+  );
+}
+
+/**
+ * Double-Bezel Card with GPU-safe MotionValue spotlight
  */
 export function SpotlightBezelCard({ children, className, innerClassName }) {
   const mouseX = useMotionValue(-300);
@@ -105,7 +140,7 @@ export function SpotlightBezelCard({ children, className, innerClassName }) {
     mouseY.set(-300);
   }
 
-  const spotlightBg = useMotionTemplate`radial-gradient(360px circle at ${mouseX}px ${mouseY}px, rgba(212, 163, 115, 0.11), transparent 75%)`;
+  const spotlightBg = useMotionTemplate`radial-gradient(360px circle at ${mouseX}px ${mouseY}px, rgba(219, 163, 104, 0.12), transparent 75%)`;
 
   return (
     <div
@@ -126,7 +161,7 @@ export function SpotlightBezelCard({ children, className, innerClassName }) {
 }
 
 /**
- * Resilient Google Maps Photo component with skeletal loading state and atmospheric fallback
+ * Resilient Google Maps Photo component with warm skeletal loading state
  */
 export function SmartPhoto({
   src,
@@ -144,20 +179,20 @@ export function SmartPhoto({
         role="img"
         aria-label={alt}
         className={cn(
-          'relative flex flex-col items-center justify-center gap-3 overflow-hidden bg-[#181614] text-center p-6',
+          'relative flex flex-col items-center justify-center gap-3 overflow-hidden bg-[#221B16] text-center p-6',
           className
         )}
       >
         <div
           aria-hidden="true"
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0 opacity-35"
           style={{
             background:
-              'radial-gradient(circle at 30% 25%, rgba(212,163,115,0.28), transparent 65%)',
+              'radial-gradient(circle at 30% 25%, rgba(219,163,104,0.28), transparent 65%)',
           }}
         />
-        <Coffee weight="thin" className="size-10 text-[#D4A373]/80 relative z-10" aria-hidden="true" />
-        <p className="relative z-10 font-serif text-sm text-[#E8E6DF]/85 max-w-[26ch] text-balance">
+        <Coffee weight="thin" className="size-10 text-[#DBA368]/85 relative z-10" aria-hidden="true" />
+        <p className="relative z-10 font-serif text-sm text-[#F4EEE5]/85 max-w-[26ch] text-balance">
           {alt}
         </p>
       </div>
@@ -165,11 +200,11 @@ export function SmartPhoto({
   }
 
   return (
-    <div className={cn('relative overflow-hidden bg-[#181614]', className)}>
+    <div className={cn('relative overflow-hidden bg-[#221B16]', className)}>
       {!loaded && (
         <div
           aria-hidden="true"
-          className="absolute inset-0 animate-pulse bg-[#211E1B]"
+          className="absolute inset-0 animate-pulse bg-[#2B221C]"
         />
       )}
       <img

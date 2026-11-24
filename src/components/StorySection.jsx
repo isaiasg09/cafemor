@@ -21,7 +21,6 @@ export default function StorySection() {
     offset: ['start end', 'end start'],
   });
 
-  // Parallax 2.5D exclusivamente em transform translateY (GPU Compositor)
   const primaryPhotoY = useTransform(
     scrollYProgress,
     [0, 1],
@@ -33,8 +32,9 @@ export default function StorySection() {
     shouldReduceMotion ? [0, 0] : [-18, 28]
   );
 
-  const photoCora = siteData.fotos[2];
-  const photoJanela = siteData.fotos[4];
+  // Fotos reais distintas das padrão do Hero: Salão & Arco Azul (foto-8) e Mesa no Jardim (foto-5)
+  const photoSalaoArco = siteData.fotos[7];
+  const photoJardim = siteData.fotos[4];
 
   return (
     <section
@@ -44,36 +44,34 @@ export default function StorySection() {
       className="relative py-24 sm:py-32"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Split Assimétrico: História da Casa + Fotografia Parallax 2.5D */}
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-6">
             <h2
               id="essencia-heading"
-              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#E8E6DF] leading-[1.14] pb-1 text-balance"
+              className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#F4EEE5] leading-[1.14] pb-1 text-balance"
             >
               Ar de casa de vó, desenhado com{' '}
-              <em className="italic text-[#D4A373] font-normal">elegância goiana.</em>
+              <em className="italic text-[#DBA368] font-normal">elegância goiana.</em>
             </h2>
 
-            <p className="mt-6 text-base sm:text-lg text-[#A8A298] leading-relaxed text-pretty max-w-[58ch]">
-              A poucos passos do Lago das Rosas, cada canto do Café Mor foi pensado com personalidade: mesas de madeira maciça bem espaçadas, cristaleira com louças antigas, pequenos vasos de flor fresca em cada mesa e o cantinho com poltronas junto à janela azul voltada para o jardim.
+            <p className="mt-6 text-base sm:text-lg text-[#B9AEA0] leading-relaxed text-pretty max-w-[58ch]">
+              A poucos passos do Lago das Rosas, cada canto do Café Mor foi pensado com personalidade: estante iluminada em madeira mel, cristaleira com relíquias antigas, pequenos vasos de flores em cada mesa, o famoso arco azul interno e mesas brancas ao ar livre no jardim.
             </p>
 
-            {/* Destaque Cora Coralina */}
             <div className="mt-8 bezel-shell">
               <div className="bezel-core p-6 sm:p-7">
                 <div className="flex items-start gap-4">
-                  <span className="mt-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#D4A373]/12 text-[#D4A373]">
+                  <span className="mt-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[#DBA368]/12 text-[#DBA368]">
                     <FlowerTulip weight="light" className="size-5" aria-hidden="true" />
                   </span>
                   <div>
-                    <p className="text-xs font-medium text-[#D4A373]">
+                    <p className="text-xs font-medium text-[#DBA368]">
                       Tributo à Alma de Goiás
                     </p>
-                    <p className="mt-1.5 font-serif text-xl text-[#E8E6DF] leading-[1.3]">
+                    <p className="mt-1.5 font-serif text-xl text-[#F4EEE5] leading-[1.3]">
                       “História, Talento, Sabedoria”
                     </p>
-                    <p className="mt-2 text-sm text-[#A8A298] leading-relaxed text-pretty">
+                    <p className="mt-2 text-sm text-[#B9AEA0] leading-relaxed text-pretty">
                       Nossa parede dedicada à poetisa Cora Coralina conecta cada xícara servida às raízes culturais de Goiás, em um salão limpo, claro, climatizado e silencioso na medida certa.
                     </p>
                   </div>
@@ -82,20 +80,19 @@ export default function StorySection() {
             </div>
           </div>
 
-          {/* Composição Parallax 2.5D (colapsa em pilha única abaixo de md:) */}
           <div className="lg:col-span-6">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-12 md:items-center">
               <motion.div style={{ y: primaryPhotoY }} className="md:col-span-7">
                 <div className="bezel-shell">
                   <div className="bezel-core overflow-hidden">
                     <SmartPhoto
-                      src={photoCora.url}
-                      alt={photoCora.legenda}
+                      src={photoSalaoArco.url}
+                      alt={photoSalaoArco.legenda}
                       className="aspect-[4/5] w-full"
                     />
-                    <div className="p-4 border-t border-[#E8E6DF]/[0.06]">
-                      <p className="font-serif text-sm text-[#E8E6DF]">{photoCora.titulo}</p>
-                      <p className="mt-0.5 text-xs text-[#A8A298]">{photoCora.categoria}</p>
+                    <div className="p-4 border-t border-[#F4EEE5]/[0.06]">
+                      <p className="font-serif text-sm text-[#F4EEE5]">{photoSalaoArco.titulo}</p>
+                      <p className="mt-0.5 text-xs text-[#B9AEA0]">{photoSalaoArco.categoria}</p>
                     </div>
                   </div>
                 </div>
@@ -105,25 +102,25 @@ export default function StorySection() {
                 <div className="bezel-shell">
                   <div className="bezel-core overflow-hidden">
                     <SmartPhoto
-                      src={photoJanela.url}
-                      alt={photoJanela.legenda}
+                      src={photoJardim.url}
+                      alt={photoJardim.legenda}
                       className="aspect-square w-full"
                     />
-                    <div className="p-4 border-t border-[#E8E6DF]/[0.06]">
-                      <p className="font-serif text-sm text-[#E8E6DF]">{photoJanela.titulo}</p>
-                      <p className="mt-0.5 text-xs text-[#A8A298]">Vista para o jardim</p>
+                    <div className="p-4 border-t border-[#F4EEE5]/[0.06]">
+                      <p className="font-serif text-sm text-[#F4EEE5]">{photoJardim.titulo}</p>
+                      <p className="mt-0.5 text-xs text-[#B9AEA0]">Pátio ao ar livre</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="bezel-shell">
                   <div className="bezel-core p-5">
-                    <div className="flex items-center gap-2 text-[#D4A373] text-xs font-medium">
+                    <div className="flex items-center gap-2 text-[#DBA368] text-xs font-medium">
                       <Sparkle weight="fill" className="size-3.5" aria-hidden="true" />
                       <span>Dica de quem frequenta</span>
                     </div>
-                    <p className="mt-2 text-sm text-[#D5D1C7] leading-relaxed text-pretty">
-                      Peça uma mesa próxima à janela ou acomode-se no salão interno climatizado e não saia sem provar os bolos caseiros ou brownies com um café especial.
+                    <p className="mt-2 text-sm text-[#E2D9CC] leading-relaxed text-pretty">
+                      Peça uma mesa próxima à janela ou no salão climatizado e não saia sem provar o bolinho de chuva quentinho ou os brownies com café especial.
                     </p>
                   </div>
                 </div>
@@ -132,14 +129,13 @@ export default function StorySection() {
           </div>
         </div>
 
-        {/* 3 Momentos da Casa (id="momentos") - Cabeçalho empilhado verticalmente */}
         <div id="momentos" className="mt-24 sm:mt-32 scroll-mt-28">
           <div className="mb-12 max-w-[58ch]">
-            <h3 className="font-serif text-3xl sm:text-4xl text-[#E8E6DF] leading-[1.15] pb-1 text-balance">
+            <h3 className="font-serif text-3xl sm:text-4xl text-[#F4EEE5] leading-[1.15] pb-1 text-balance">
               Versatilidade do almoço ao café da tarde.
             </h3>
-            <p className="mt-4 text-sm sm:text-base text-[#A8A298] leading-relaxed text-pretty">
-              Funciona para um almoço tranquilo em família, uma reunião de trabalho produtiva ou uma pausa demorada com confeitaria autoral.
+            <p className="mt-4 text-sm sm:text-base text-[#B9AEA0] leading-relaxed text-pretty">
+              Funciona para um almoço executivo em família, uma reunião de trabalho produtiva ou uma pausa demorada com confeitaria autoral.
             </p>
           </div>
 
@@ -168,27 +164,27 @@ export default function StorySection() {
                   >
                     <div>
                       <div className="flex items-center justify-between gap-3">
-                        <span className="inline-flex size-11 items-center justify-center rounded-2xl border border-[#D4A373]/25 bg-[#1D1B19] text-[#D4A373]">
+                        <span className="inline-flex size-11 items-center justify-center rounded-2xl border border-[#DBA368]/25 bg-[#271F19] text-[#DBA368]">
                           <IconComponent weight="light" className="size-5" aria-hidden="true" />
                         </span>
-                        <span className="text-xs font-medium text-[#D4A373]">
+                        <span className="text-xs font-medium text-[#DBA368]">
                           {momento.horarioSugerido}
                         </span>
                       </div>
 
-                      <h4 className="mt-6 font-serif text-2xl text-[#E8E6DF] leading-[1.2] text-balance">
+                      <h4 className="mt-6 font-serif text-2xl text-[#F4EEE5] leading-[1.2] text-balance">
                         {momento.titulo}
                       </h4>
-                      <p className="mt-3 text-sm sm:text-base text-[#A8A298] leading-relaxed text-pretty">
+                      <p className="mt-3 text-sm sm:text-base text-[#B9AEA0] leading-relaxed text-pretty">
                         {momento.descricao}
                       </p>
                     </div>
 
-                    <ul className="flex flex-wrap gap-2 pt-5 border-t border-[#E8E6DF]/[0.07]">
+                    <ul className="flex flex-wrap gap-2 pt-5 border-t border-[#F4EEE5]/[0.07]">
                       {momento.itensCitados.map((tag) => (
                         <li
                           key={tag}
-                          className="rounded-full border border-[#E8E6DF]/10 bg-[#0F0F10]/65 px-3 py-1 text-xs text-[#D5D1C7]"
+                          className="rounded-full border border-[#F4EEE5]/10 bg-[#15110E]/65 px-3 py-1 text-xs text-[#E2D9CC]"
                         >
                           {tag}
                         </li>
